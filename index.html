@@ -1,40 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>River Research Institute & Geo-Spatial Foundation</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>River Research & Geo-Spatial Foundation (RRGSF)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f4f8fb;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+    header img {
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      filter: brightness(70%);
+    }
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .title h1 {
+      font-size: 2.6em;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+    .title p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #004c91;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #004c91;
+      border-bottom: 2px solid #cce0f5;
+      padding-bottom: 5px;
+    }
+
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .member {
+      width: 260px;
+      background: #f0f6fb;
+      margin: 15px;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .member:hover {
+      transform: translateY(-5px);
+      background: #e3f2fd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #004c91;
+      color: white;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .title h1 { font-size: 2em; }
+      .member { width: 90%; }
+    }
+  </style>
 </head>
 <body>
-  <header class="banner">
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Aerial view of a river" class="banner-img">
-    <div class="banner-text">
-      <h1>River Research Institute & Geo-Spatial Foundation</h1>
-      <h3>Exploring Himalayan Rivers, Landscapes & Society</h3>
+
+  <header>
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Aerial view of a river">
+    <div class="title">
+      <h1>River Research & Geo-Spatial Foundation (RRGSF)</h1>
+      <p>Dhupguri, Jalpaiguri, West Bengal, India</p>
     </div>
   </header>
 
-  <section class="about">
-    <h2>About the Founder</h2>
-    <p><b>Dr. Debarshi Ghosh</b><br>
-    Assistant Professor in Geography, Dhupguri Girls' College<br>
-    Geomorphologist | River Researcher | Geo-Spatial Modeler</p>
-    <p>Dr. Ghosh holds a Ph.D. from the University of North Bengal on “Fluvial Dynamics of the Chel River Basin.” He specializes in river morphology, floodplain processes, and participatory GIS applications in environmental research. His work bridges field-based hydrological observation with advanced remote sensing and geospatial modelling.</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#team">Team</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About the Institute</h2>
+    <p><b>River Research & Geo-Spatial Foundation (RRGSF)</b> is dedicated to advancing river science and innovative geo-spatial solutions. 
+    Located in Dhupguri, Jalpaiguri, the institute focuses on Himalayan river morphodynamics, floodplain evolution, 
+    participatory GIS, and environmental sustainability. We collaborate with universities and research organizations 
+    through MoUs, training workshops, and community engagement programs.</p>
   </section>
 
-  <section class="team">
+  <section id="team">
     <h2>Research Team</h2>
-    <ul>
-      <li><b>Mr. Dipankar Das</b> – Research Assistant</li>
-      <li><b>Mr. Sanjoy Mandal</b> – Research Scholar</li>
-    </ul>
+    <div class="team-members">
+      <div class="member">
+        <h3>Dr. Debarshi Ghosh</h3>
+        <p><i>Assistant Professor in Geography, Dhupguri Girls’ College</i><br>
+        Geomorphologist | River Researcher | Geo-Spatial Modeler</p>
+      </div>
+      <div class="member">
+        <h3>Mr. Dipankar Das</h3>
+        <p>Research Assistant<br>Specialization: Remote Sensing and GIS Applications</p>
+      </div>
+      <div class="member">
+        <h3>Mr. Sanjoy Mandal</h3>
+        <p>Research Scholar<br>Specialization: River Morphodynamics and Floodplain Studies</p>
+      </div>
+    </div>
   </section>
 
-  <section class="research">
+  <section id="research">
     <h2>Research Areas</h2>
     <ul>
-      <li>Channel Dynamics & Morphometric Analysis of Himalayan Rivers</li>
+      <li>Channel Dynamics and Morphometric Analysis of Himalayan Rivers</li>
       <li>Floodplain Processes and Bank Erosion Monitoring</li>
       <li>Participatory GIS and Community-Based Flood Resilience</li>
       <li>RS-GIS Applications in Environmental Assessment</li>
@@ -42,30 +163,23 @@
     </ul>
   </section>
 
-  <section class="projects">
-    <h2>Major Projects</h2>
+  <section id="projects">
+    <h2>Ongoing Projects</h2>
     <ul>
-      <li><b>DSTBT Project:</b> Channel migration and land loss in the Ganga, Malda District (Ongoing).</li>
+      <li><b>DSTBT Project:</b> Channel migration and land loss in the Ganga, Malda District.</li>
       <li><b>MoES Project:</b> Teesta River Channel Shifting in the Dooars Region after the 2023 GLOF.</li>
     </ul>
   </section>
 
-  <section class="contact">
+  <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:debarshi90dgc@gmail.com">debarshi90dgc@gmail.com</a></p>
-    <p>Dhupguri Girls' College, Jalpaiguri, West Bengal 735210, India</p>
+    <p>Email: <a href="mailto:debarshi90dgc@gmail.com">debarshi90dgc@gmail.com</a><br>
+    Dhupguri Girls' College, Jalpaiguri, West Bengal 735210, India</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 River Research Institute & Geo-Spatial Foundation | Designed by Dr. Debarshi Ghosh</p>
+    &copy; 2025 River Research & Geo-Spatial Foundation | Designed by Dr. Debarshi Ghosh
   </footer>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
