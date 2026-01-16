@@ -4,181 +4,222 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>River Research & Geo-Spatial Foundation (RRGSF)</title>
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #f4f8fb;
-      color: #222;
-      line-height: 1.6;
+    /* --- 1. PROFESSIONAL THEME SETTINGS --- */
+    :root {
+      --primary-color: #003366; /* Deep Navy Blue */
+      --secondary-color: #b8860b; /* Dark Gold/Bronze for accents */
+      --light-bg: #f4f6f9;
+      --text-dark: #333;
+      --white: #ffffff;
     }
+
+    body { margin: 0; font-family: 'Roboto', sans-serif; background: var(--light-bg); color: var(--text-dark); line-height: 1.6; }
+    
+    /* Typography */
+    h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary-color); }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    
+    /* --- 2. HEADER & HERO --- */
     header {
-      position: relative;
+      background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.6)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
       text-align: center;
-      color: white;
+      padding: 80px 20px;
     }
-    header img {
-      width: 100%;
-      height: 70vh;
-      object-fit: cover;
-      filter: brightness(70%);
-    }
-    .title {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-    .title h1 {
-      font-size: 2.6em;
-      margin: 0;
-      letter-spacing: 1px;
-    }
-    .title p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
+    header h1 { color: var(--white); font-size: 3em; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+    header p { font-size: 1.2em; margin-top: 10px; font-weight: 300; }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      background: #004c91;
-      padding: 10px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #ffd700;
-    }
+    /* --- 3. STICKY NAVIGATION --- */
+    nav { background: var(--primary-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; justify-content: center; padding: 15px 0; }
+    nav a { color: var(--white); margin: 0 20px; font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
+    nav a:hover { color: var(--secondary-color); border-bottom: 2px solid var(--secondary-color); }
 
-    section {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #004c91;
-      border-bottom: 2px solid #cce0f5;
-      padding-bottom: 5px;
-    }
+    /* --- 4. LAYOUT CONTAINERS --- */
+    .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+    section { background: var(--white); margin-bottom: 30px; padding: 40px; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+    
+    /* Section Headers */
+    .section-title { border-left: 5px solid var(--secondary-color); padding-left: 15px; margin-bottom: 30px; }
 
-    .team-members {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-top: 20px;
-    }
-    .member {
-      width: 260px;
-      background: #f0f6fb;
-      margin: 15px;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .member:hover {
-      transform: translateY(-5px);
-      background: #e3f2fd;
-    }
+    /* --- 5. DASHBOARD (LATEST WORK) --- */
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .news-card { background: var(--light-bg); border: 1px solid #ddd; padding: 20px; border-radius: 5px; position: relative; }
+    .news-tag { background: var(--secondary-color); color: white; padding: 2px 8px; font-size: 0.8em; border-radius: 3px; position: absolute; top: 10px; right: 10px; }
+    .news-card h3 { font-size: 1.2rem; margin-top: 0; }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #004c91;
-      color: white;
-      font-size: 0.9em;
-    }
+    /* --- 6. COURSES & PUBLICATIONS --- */
+    .course-list, .pub-list { list-style: none; padding: 0; }
+    .course-item, .pub-item { border-bottom: 1px solid #eee; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .course-item:last-child, .pub-item:last-child { border-bottom: none; }
+    
+    .btn { background: var(--primary-color); color: white; padding: 8px 15px; border-radius: 4px; font-size: 0.9em; display: inline-block; margin-top: 10px; }
+    .btn:hover { background: var(--secondary-color); }
+    .btn-download { background: #27ae60; } /* Green for downloads */
 
+    /* --- 7. TEAM & CONTACT --- */
+    .team-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .team-card { width: 250px; text-align: center; padding: 20px; background: var(--light-bg); border-radius: 8px; }
+    
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .contact-info i { color: var(--secondary-color); width: 25px; margin-right: 10px; }
+
+    /* Mobile Tweaks */
     @media (max-width: 768px) {
-      .title h1 { font-size: 2em; }
-      .member { width: 90%; }
+      header h1 { font-size: 2em; }
+      nav { flex-direction: column; align-items: center; }
+      nav a { margin: 5px 0; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Aerial view of a river">
-    <div class="title">
-      <h1>River Research & Geo-Spatial Foundation (RRGSF)</h1>
-      <p>Dhupguri, Jalpaiguri, West Bengal, India</p>
-    </div>
+    <h1>River Research & Geo-Spatial Foundation</h1>
+    <p>Advancing River Science & Community Resilience in the Dooars & Bengal Basin</p>
   </header>
 
   <nav>
+    <a href="#dashboard">Latest Work</a>
     <a href="#about">About</a>
-    <a href="#team">Team</a>
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
+    <a href="#courses">Courses</a>
+    <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about">
-    <h2>About the Institute</h2>
-    <p><b>River Research & Geo-Spatial Foundation (RRGSF)</b> is dedicated to advancing river science and innovative geo-spatial solutions. 
-    Located in Dhupguri, Jalpaiguri, the institute focuses on Himalayan river morphodynamics, floodplain evolution, 
-    participatory GIS, and environmental sustainability. We collaborate with universities and research organizations 
-    through MoUs, training workshops, and community engagement programs.</p>
-  </section>
+  <div class="container">
 
-  <section id="team">
-    <h2>Research Team</h2>
-    <div class="team-members">
-      <div class="member">
-        <h3>Dr. Debarshi Ghosh</h3>
-        <p><i>Assistant Professor in Geography, Dhupguri Girls’ College</i><br>
-        Geomorphologist | River Researcher | Geo-Spatial Modeler</p>
+    <section id="dashboard">
+      <div class="section-title">
+        <h2>Activity Dashboard</h2>
+        <p><i>Latest field work, ongoing surveys, and institute updates.</i></p>
       </div>
-      <div class="member">
-        <h3>Mr. Dipankar Das</h3>
-        <p>Research Assistant<br>Specialization: Remote Sensing and GIS Applications</p>
+      <div class="dashboard-grid">
+        <div class="news-card">
+          <span class="news-tag">Field Work</span>
+          <h3>Teesta River Bank Survey</h3>
+          <p><small>Jan 10, 2026</small></p>
+          <p>The team completed the post-monsoon cross-sectional survey at the Domohani observational point.</p>
+        </div>
+        <div class="news-card">
+          <span class="news-tag">Workshop</span>
+          <h3>QGIS Training for Students</h3>
+          <p><small>Dec 15, 2025</small></p>
+          <p>Conducted a 3-day rigorous workshop on open-source GIS software for undergraduate geography students.</p>
+        </div>
+        <div class="news-card">
+          <span class="news-tag">Alert</span>
+          <h3>Flood Warning Analysis</h3>
+          <p><small>Current Status</small></p>
+          <p>Analyzing satellite data for potential GLOF impacts in Northern Bengal regions.</p>
+        </div>
       </div>
-      <div class="member">
-        <h3>Mr. Sanjoy Mandal</h3>
-        <p>Research Scholar<br>Specialization: River Morphodynamics and Floodplain Studies</p>
+    </section>
+
+    <section id="courses">
+      <div class="section-title">
+        <h2>Academic Courses & Training</h2>
       </div>
-    </div>
-  </section>
+      <ul class="course-list">
+        <li class="course-item">
+          <div>
+            <h3>Certificate in River Morphodynamics</h3>
+            <p><b>Duration:</b> 3 Months | <b>Mode:</b> Hybrid</p>
+            <p>Learn channel migration mapping using satellite imagery.</p>
+          </div>
+          <a href="#" class="btn">View Syllabus</a>
+        </li>
+        <li class="course-item">
+          <div>
+            <h3>Advanced GIS & Remote Sensing</h3>
+            <p><b>Duration:</b> 6 Weeks | <b>Mode:</b> Offline (Dhupguri)</p>
+            <p>Hands-on training with ArcGIS and QGIS for environmental analysis.</p>
+          </div>
+          <a href="#" class="btn">Apply Now</a>
+        </li>
+      </ul>
+    </section>
 
-  <section id="research">
-    <h2>Research Areas</h2>
-    <ul>
-      <li>Channel Dynamics and Morphometric Analysis of Himalayan Rivers</li>
-      <li>Floodplain Processes and Bank Erosion Monitoring</li>
-      <li>Participatory GIS and Community-Based Flood Resilience</li>
-      <li>RS-GIS Applications in Environmental Assessment</li>
-      <li>Geo-Statistical and Hydrological Modeling</li>
-    </ul>
-  </section>
+    <section id="publications">
+      <div class="section-title">
+        <h2>Publications & Reports</h2>
+      </div>
+      <p>Download our latest research papers and annual reports.</p>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div>
+            <i class="fas fa-file-pdf" style="color: red; margin-right: 10px;"></i>
+            <b>Annual River Report 2025</b> - <i>Assessment of the Jaldhaka Basin</i>
+          </div>
+          <a href="downloads/report2025.pdf" class="btn btn-download" download>Download PDF</a>
+        </li>
+        <li class="pub-item">
+          <div>
+            <i class="fas fa-file-pdf" style="color: red; margin-right: 10px;"></i>
+            <b>Research Paper:</b> <i>Impact of Embankments on Flood Frequency</i>
+          </div>
+          <a href="downloads/paper_embankments.pdf" class="btn btn-download" download>Download PDF</a>
+        </li>
+      </ul>
+    </section>
 
-  <section id="projects">
-    <h2>Ongoing Projects</h2>
-    <ul>
-      <li><b>DSTBT Project:</b> Channel migration and land loss in the Ganga, Malda District.</li>
-      <li><b>MoES Project:</b> Teesta River Channel Shifting in the Dooars Region after the 2023 GLOF.</li>
-    </ul>
-  </section>
+    <section id="about">
+      <div class="section-title">
+        <h2>About The Foundation</h2>
+      </div>
+      <p><b>RRGSF</b> is a premier research body in Dhupguri dedicated to the scientific study of rivers in the Himalayan foreland. We combine traditional field geomorphology with modern satellite remote sensing.</p>
+      
+      <h3>Key Members</h3>
+      <div class="team-grid">
+        <div class="team-card">
+          <h4>Dr. Debarshi Ghosh</h4>
+          <p><i>Director & Founder</i></p>
+          <p>Specialist in Fluvial Geomorphology</p>
+        </div>
+        <div class="team-card">
+          <h4>Mr. Sanjoy Mandal</h4>
+          <p><i>Senior Research Fellow</i></p>
+          <p>Floodplain Management</p>
+        </div>
+         <div class="team-card">
+          <h4>Mr. Dipankar Das</h4>
+          <p><i>Technical Lead</i></p>
+          <p>GIS & Data Science</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:debarshi90dgc@gmail.com">debarshi90dgc@gmail.com</a><br>
-    Dhupguri Girls' College, Jalpaiguri, West Bengal 735210, India</p>
-  </section>
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+          <p><b>River Research & Geo-Spatial Foundation</b><br>
+          C/O Dhupguri Girls' College<br>
+          Jalpaiguri, West Bengal, 735210</p>
+        </div>
+        <div class="contact-info">
+          <h3><i class="fas fa-phone"></i> Get in Touch</h3>
+          <p><b>Research Desk:</b> +91 98000 00000</p>
+          <p><b>Admin Office:</b> +91 94000 00000</p>
+          <p><b>Email:</b> <a href="mailto:debarshi90dgc@gmail.com">debarshi90dgc@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    &copy; 2025 River Research & Geo-Spatial Foundation | Designed by Dr. Debarshi Ghosh
+  </div>
+
+  <footer style="background: #003366; color: white; text-align: center; padding: 20px;">
+    <p>&copy; 2026 River Research & Geo-Spatial Foundation (RRGSF). All Rights Reserved.</p>
   </footer>
 
 </body>
