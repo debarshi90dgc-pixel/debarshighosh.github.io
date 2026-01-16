@@ -47,12 +47,55 @@
     
     /* Section Headers */
     .section-title { border-left: 5px solid var(--secondary-color); padding-left: 15px; margin-bottom: 30px; }
+    /*Dashboard*/
+    <section id="dashboard">
+      <div class="section-title">
+        <h2>Activity Dashboard & Upcoming Events</h2>
+        <p><i>Latest workshops, field work, and institute updates.</i></p>
+      </div>
+      
+      <div class="dashboard-grid">
+        
+        <div class="news-card flyer-card" style="border: 2px solid #b8860b; background: #fffdf5;">
+          <span class="news-tag" style="background: #d32f2f;">REGISTRATION OPEN</span>
+          <h3 style="color: #b8860b; margin-top: 10px;">
+            <i class="fas fa-helicopter"></i> 1-Day Workshop: Drone Aerial Mapping
+          </h3>
+          <p><b><i class="far fa-calendar-alt"></i> Date:</b> February 20, 2026 (Friday)</p>
+          <p><b><i class="fas fa-clock"></i> Duration:</b> 6 Hours (Hands-on Training)</p>
+          <p><b><i class="fas fa-map-marker-alt"></i> Venue:</b> Dhupguri Girls' College</p>
+          
+          <hr style="border: 0; border-top: 1px dashed #ccc;">
+          
+          <p><b>Resource Person:</b> Dr. Debarshi Ghosh</p>
+          <p>Join us for a comprehensive session covering <b>Concept, Flying Experience, and Mapping Techniques.</b></p>
+          
+          <div style="background: #eee; padding: 10px; border-radius: 5px; margin: 10px 0;">
+            <p style="margin:0;"><b>Course Fee:</b> ₹ 600/- <small>(Includes Certificate. Excludes Lunch.)</small></p>
+            <p style="margin:5px 0 0 0; color: #d32f2f; font-weight: bold;">Deadline: February 10, 2026</p>
+          </div>
 
-    /* --- 5. DASHBOARD (LATEST WORK) --- */
-    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .news-card { background: var(--light-bg); border: 1px solid #ddd; padding: 20px; border-radius: 5px; position: relative; }
-    .news-tag { background: var(--secondary-color); color: white; padding: 2px 8px; font-size: 0.8em; border-radius: 3px; position: absolute; top: 10px; right: 10px; }
-    .news-card h3 { font-size: 1.2rem; margin-top: 0; }
+          <p><b>To Register/Submit Willingness:</b><br>
+          Call/WhatsApp: <b>9851102500 / 9641680671</b><br>
+          Email: <a href="mailto:debarshi90dgc@gmail.com" style="color:blue;">debarshi90dgc@gmail.com</a></p>
+        </div>
+
+        <div class="news-card">
+          <span class="news-tag">Field Work</span>
+          <h3>Teesta River Bank Survey</h3>
+          <p><small>Jan 10, 2026</small></p>
+          <p>The team completed the post-monsoon cross-sectional survey at the Domohani observational point.</p>
+        </div>
+
+        <div class="news-card">
+          <span class="news-tag">Alert</span>
+          <h3>Flood Warning Analysis</h3>
+          <p><small>Current Status</small></p>
+          <p>Analyzing satellite data for potential GLOF impacts in Northern Bengal regions.</p>
+        </div>
+
+      </div>
+    </section>
 
     /* --- 6. COURSES & PUBLICATIONS --- */
     .course-list, .pub-list { list-style: none; padding: 0; }
