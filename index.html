@@ -23,87 +23,6 @@
     h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary-color); }
     a { text-decoration: none; color: inherit; transition: 0.3s; }
     
-    /* --- VIDEO HEADER SECTION --- */
-    header.video-header {
-      position: relative;
-      height: 500px; /* Nice tall header */
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--white);
-      /* Fallback Image (Shows immediately while video loads) */
-      background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1472&auto=format&fit=crop') no-repeat center center/cover;
-    }
-
-    .back-video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: 0; /* Behind everything */
-      transform: translateX(-50%) translateY(-50%);
-      object-fit: cover;
-    }
-
-    .header-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 30, 60, 0.4); /* Dark blue tint */
-      z-index: 1; /* Above video, below text */
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 2; /* Top layer */
-      padding: 20px;
-      animation: fadeIn 1.5s ease-out;
-    }
-    
-    /* Logo Styling */
-    .site-logo {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border-radius: 50%;
-      border: 4px solid rgba(255,255,255,0.9);
-      background: rgba(255,255,255,0.2);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-
-    header h1 { 
-      color: var(--white); 
-      font-size: 2.8em; 
-      margin: 0; 
-      text-transform: uppercase; 
-      letter-spacing: 2px; 
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.9); 
-    }
-    header p { 
-      font-size: 1.3em; 
-      margin-top: 10px; 
-      font-weight: 400; 
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.9); 
-      background: rgba(0,0,0,0.3);
-      display: inline-block;
-      padding: 5px 15px;
-      border-radius: 5px;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
     /* --- NAVIGATION --- */
     nav { background: var(--primary-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; justify-content: center; padding: 15px 0; }
     nav a { color: var(--white); margin: 0 20px; font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -133,6 +52,7 @@
     .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
     .news-card { background: var(--light-bg); border: 1px solid #ddd; padding: 20px; border-radius: 5px; position: relative; }
     .news-tag { background: var(--secondary-color); color: white; padding: 2px 8px; font-size: 0.8em; border-radius: 3px; position: absolute; top: 10px; right: 10px; }
+    .news-card h3 { font-size: 1.2rem; margin-top: 0; }
     .jalachakra-card { grid-column: span 1; background: #e0f7fa; border: 2px solid #00bcd4; }
     @media(min-width: 768px) { .jalachakra-card { grid-column: span 2; } }
 
@@ -147,9 +67,20 @@
     .btn-download { background: #27ae60; } 
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
     
+    /* Header Overlay Styling */
+    .header-content { text-align: center; color: white; animation: fadeIn 2s ease-out; }
+    .site-logo { 
+      width: 140px; height: 140px; object-fit: cover; margin-bottom: 15px; 
+      border-radius: 50%; border: 4px solid rgba(255,255,255,0.9); 
+      background: rgba(255,255,255,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.5); 
+    }
+    .header-title { font-size: 2.8em; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); font-family: 'Playfair Display', serif; }
+    .header-subtitle { font-size: 1.3em; margin-top: 10px; font-weight: 400; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 5px; display: inline-block; }
+
+    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+
     @media (max-width: 768px) {
-      header.video-header { height: 400px; }
-      header h1 { font-size: 1.8em; }
+      .header-title { font-size: 1.8em; }
       .site-logo { width: 100px; height: 100px; }
       nav { flex-direction: column; align-items: center; }
       .contact-grid { grid-template-columns: 1fr; }
@@ -158,22 +89,179 @@
 </head>
 <body>
 
-  <header class="video-header">
-    <video autoplay muted loop playsinline class="back-video">
-      <source src="https://cdn.pixabay.com/video/2023/10/12/184734-873923034_large.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
+  <div id="riverHero" style="position:relative; width:100%; height:480px; overflow:hidden; border-bottom:5px solid #b8860b;">
+    <canvas id="riverCanvas" style="width:100%; height:100%; display:block;"></canvas>
 
-    <div class="header-overlay"></div>
-
-    <div class="header-content">
-      <img src="WhatsApp Image 2026-02-01 at 10.07.23 AM.jpeg" alt="RRGSF Logo" class="site-logo">
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none;">
+      <div class="header-content" style="pointer-events: auto;">
+        
+        <img src="WhatsApp Image 2026-02-01 at 10.07.23 AM.jpeg" alt="RRGSF Logo" class="site-logo">
+        
+        <h1 class="header-title">River Research & Geo-Spatial Foundation</h1>
+        <p class="header-subtitle">Advancing River Science & Community Resilience in the Dooars & Bengal Basin</p>
       
-      <h1>River Research & Geo-Spatial Foundation</h1>
-      <p>Advancing River Science & Community Resilience in the Dooars & Bengal Basin</p>
+      </div>
     </div>
-  </header>
+  </div>
 
+  <script>
+  (() => {
+    const canvas = document.getElementById("riverCanvas");
+    const wrap = document.getElementById("riverHero");
+    const ctx = canvas.getContext("2d");
+
+    function resize() {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      canvas.width = Math.floor(wrap.clientWidth * dpr);
+      canvas.height = Math.floor(wrap.clientHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    const W = () => wrap.clientWidth;
+    const H = () => wrap.clientHeight;
+
+    // --- water drops ---
+    const drops = [];
+    const DROP_COUNT = 60;
+
+    function rand(min, max){ return min + Math.random()*(max-min); }
+
+    function resetDrop(d) {
+      d.x = rand(0, W());
+      d.y = rand(-H(), 0);
+      d.vy = rand(140, 360);
+      d.r = rand(1.2, 3.2);
+      d.wob = rand(0, Math.PI*2);
+      d.wobSp = rand(2.0, 5.2);
+      d.alpha = rand(0.25, 0.75);
+    }
+
+    for (let i=0;i<DROP_COUNT;i++){
+      const d = {};
+      resetDrop(d);
+      d.y = rand(-H(), H());
+      drops.push(d);
+    }
+
+    let t0 = performance.now();
+    let phase = 0;
+
+    function drawBackground() {
+      const g = ctx.createLinearGradient(0,0,0,H());
+      g.addColorStop(0, "#001a33");
+      g.addColorStop(0.55, "#003366");
+      g.addColorStop(1, "#0b2f4a");
+      ctx.fillStyle = g;
+      ctx.fillRect(0,0,W(),H());
+    }
+
+    function drawRiver(nowSec) {
+      const h = H();
+      const w = W();
+      const mid = h*0.60;
+
+      ctx.save();
+      ctx.beginPath();
+
+      const amp = h*0.06;
+      const amp2 = h*0.035;
+      const freq = 0.012;
+      const freq2 = 0.020;
+
+      ctx.moveTo(0, mid + Math.sin((0*freq) + phase)*amp);
+      for (let x=0; x<=w; x+=12){
+        const y = mid
+          + Math.sin((x*freq)+phase)*amp
+          + Math.sin((x*freq2)-(phase*1.4))*amp2;
+        ctx.lineTo(x, y);
+      }
+
+      const thickness = h*0.32;
+      for (let x=w; x>=0; x-=12){
+        const y = (mid + thickness)
+          + Math.sin((x*freq)+(phase*0.8))*amp*0.85
+          + Math.sin((x*freq2)+(phase*0.6))*amp2;
+        ctx.lineTo(x, y);
+      }
+
+      ctx.closePath();
+
+      const rg = ctx.createLinearGradient(0, mid-h*0.1, 0, mid+thickness+h*0.1);
+      rg.addColorStop(0, "#00bcd4");
+      rg.addColorStop(0.45, "#008ea3");
+      rg.addColorStop(1, "#004b63");
+      ctx.fillStyle = rg;
+      ctx.fill();
+
+      // shimmer flow lines
+      ctx.clip();
+      const streaks = 22;
+      for (let i=0;i<streaks;i++){
+        const y = mid + (i/streaks)*(thickness*0.9);
+        const speed = 30 + i*4;
+        const offset = (nowSec*speed*18) % (w+240);
+
+        ctx.globalAlpha = 0.12;
+        ctx.strokeStyle = "#e6ffff";
+        ctx.lineWidth = 1.2;
+
+        ctx.beginPath();
+        ctx.moveTo(-240 + offset, y);
+        ctx.lineTo(-80 + offset, y - 8);
+        ctx.lineTo(80 + offset, y + 6);
+        ctx.lineTo(240 + offset, y);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      ctx.restore();
+    }
+
+    function drawDrops(dt) {
+      const w = W();
+      const h = H();
+
+      for (const d of drops) {
+        d.wob += d.wobSp*dt;
+        d.y += d.vy*dt;
+        d.x += Math.sin(d.wob)*18*dt;
+
+        if (d.y > h + 20) resetDrop(d);
+
+        ctx.globalAlpha = d.alpha;
+        ctx.fillStyle = "#bffaff";
+        ctx.beginPath();
+        ctx.ellipse(d.x, d.y, d.r*0.8, d.r*1.3, 0, 0, Math.PI*2);
+        ctx.fill();
+
+        ctx.globalAlpha = d.alpha*0.7;
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(d.x - d.r*0.25, d.y - d.r*0.35, d.r*0.35, 0, Math.PI*2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function loop(now) {
+      const nowSec = now / 1000;
+      const dt = Math.min(0.033, (now - t0) / 1000);
+      t0 = now;
+
+      phase += dt * 1.25;
+
+      ctx.clearRect(0,0,W(),H());
+      drawBackground();
+      drawRiver(nowSec);
+      drawDrops(dt);
+
+      requestAnimationFrame(loop);
+    }
+
+    requestAnimationFrame(loop);
+  })();
+  </script>
   <nav>
     <a href="#dashboard">Latest Work</a>
     <a href="#members">Members</a>
