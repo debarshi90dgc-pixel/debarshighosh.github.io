@@ -72,30 +72,48 @@
     
     .section-title { border-left: 5px solid var(--secondary-color); padding-left: 15px; margin-bottom: 30px; }
 
+    /* --- MEMBERS GRID --- */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .member-card {
+      background: #fff;
+      border: 1px solid #e1e1e1;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .member-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+    
+    .member-photo {
+      width: 100%;
+      height: 220px;
+      background-color: #eee;
+      object-fit: cover;
+      display: block;
+    }
+    .member-info { padding: 15px; }
+    .member-name { font-family: 'Playfair Display', serif; color: var(--primary-color); font-size: 1.2rem; margin: 10px 0 5px 0; font-weight: bold; }
+    .member-role { color: var(--secondary-color); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 8px; display: block; }
+    .member-desc { font-size: 0.85rem; color: #555; line-height: 1.4; }
+
     /* --- DASHBOARD & CARDS --- */
     .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
     .news-card { background: var(--light-bg); border: 1px solid #ddd; padding: 20px; border-radius: 5px; position: relative; }
     .news-tag { background: var(--secondary-color); color: white; padding: 2px 8px; font-size: 0.8em; border-radius: 3px; position: absolute; top: 10px; right: 10px; }
     .news-card h3 { font-size: 1.2rem; margin-top: 0; }
     
-    /* Highlight Card for JalaChakra */
-    .jalachakra-card { 
-      grid-column: span 1; 
-      background: #e0f7fa; /* Light cyan background */
-      border: 2px solid #00bcd4;
-    }
+    .jalachakra-card { grid-column: span 1; background: #e0f7fa; border: 2px solid #00bcd4; }
     @media(min-width: 768px) { .jalachakra-card { grid-column: span 2; } }
 
     /* --- WINGS SECTION --- */
     .wings-container { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; }
-    .wing-box { 
-      flex: 1; 
-      min-width: 250px; 
-      background: #fdfdfd; 
-      border-left: 4px solid var(--primary-color); 
-      padding: 20px; 
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
+    .wing-box { flex: 1; min-width: 250px; background: #fdfdfd; border-left: 4px solid var(--primary-color); padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
     .wing-box h4 { margin-top: 0; color: var(--primary-color); }
 
     /* --- LISTS & BUTTONS --- */
@@ -107,10 +125,7 @@
     .btn:hover { background: var(--secondary-color); }
     .btn-download { background: #27ae60; } 
 
-    /* --- CONTACT & TEAM --- */
-    .team-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .team-card { width: 250px; text-align: center; padding: 20px; background: var(--light-bg); border-radius: 8px; }
-    
+    /* --- CONTACT --- */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
     .contact-info i { color: var(--secondary-color); width: 25px; margin-right: 10px; }
 
@@ -132,7 +147,7 @@
 
   <nav>
     <a href="#dashboard">Latest Work</a>
-    <a href="#about">About</a>
+    <a href="#members">Members</a> <a href="#about">About</a>
     <a href="#courses">Courses</a>
     <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
@@ -156,15 +171,11 @@
       </div>
       
       <div class="dashboard-grid">
-        
         <div class="news-card jalachakra-card">
           <span class="news-tag" style="background: #00bcd4; color: #000;">SIGNATURE PROGRAMME</span>
-          <h3 style="color: #006064; margin-top: 15px; font-size: 1.5rem;">
-            <i class="fas fa-water"></i> JalaChakra, 2026_February
-          </h3>
+          <h3 style="color: #006064; margin-top: 15px; font-size: 1.5rem;"><i class="fas fa-water"></i> JalaChakra, 2026_February</h3>
           <p style="font-size: 1.1em; color: #555;"><i>Participatory Water Assessment & Literacy Initiative</i></p>
           <hr style="border: 0; border-top: 1px solid #b2ebf2; margin: 15px 0;">
-          
           <div style="display: flex; flex-wrap: wrap; gap: 20px;">
             <div style="flex: 1;">
               <h4 style="margin: 0 0 5px 0; color: #006064;">Our Motto</h4>
@@ -180,27 +191,126 @@
           </div>
           <a href="#" class="btn" style="background: #00bcd4; color: #000; font-weight: bold;">Join Campaign</a>
         </div>
+
         <div class="news-card" style="border: 2px solid #003366; background: #eef5fa;">
           <span class="news-tag" style="background: #003366;">PREMIUM ONLINE COURSE</span>
-          <h3 style="color: #003366; margin-top: 15px;">
-            <i class="fas fa-laptop-code"></i> Digital Granulometry
-          </h3>
+          <h3 style="color: #003366; margin-top: 15px;"><i class="fas fa-laptop-code"></i> Digital Granulometry</h3>
           <p><b>Starts:</b> March 01, 2026 | 7:00 PM (Online)</p>
           <p>Objective: Finding particle size for sediment movement analysis using PyGRain 1.0 & BaseGrain.</p>
           <div style="background: #fff; padding: 5px; border: 1px solid #ccdbe6; border-radius: 5px; margin: 10px 0;">
             <p style="margin:0; color: #003366;"><b>Fee:</b> ₹ 1,200/-</p>
           </div>
-          <p><small>Contact: 9851102500</small></p>
         </div>
 
         <div class="news-card" style="border: 2px solid #b8860b; background: #fffdf5;">
           <span class="news-tag" style="background: #d32f2f;">FEBRUARY EVENT</span>
-          <h3 style="color: #b8860b; margin-top: 15px;">
-            <i class="fas fa-helicopter"></i> Drone Aerial Mapping
-          </h3>
+          <h3 style="color: #b8860b; margin-top: 15px;"><i class="fas fa-helicopter"></i> Drone Aerial Mapping</h3>
           <p><b>Date:</b> Feb 20, 2026 | Dhupguri Girls' College</p>
           <p><small>Hands-on flying experience & mapping concepts.</small></p>
           <div style="margin-top:10px; font-weight:bold; color:#b8860b;">Fee: ₹ 600/-</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="members">
+      <div class="section-title">
+        <h2>Foundation Members</h2>
+      </div>
+
+      <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0;">Governing Body</h3>
+      <div class="members-grid">
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Debkanta+Kirtania" alt="Debkanta Kirtania" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">President</span>
+            <div class="member-name">Sri Debkanta Kirtania</div>
+            <div class="member-desc">Retd. Govt. official, WB</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Debarshi+Ghosh" alt="Debarshi Ghosh" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">General Secretary</span>
+            <div class="member-name">Dr. Debarshi Ghosh</div>
+            <div class="member-desc">Assistant Professor, Dhupguri Girls’ College<br>Social Water Expert</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Sanjoy+Mandal" alt="Sanjoy Mandal" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">Treasurer</span>
+            <div class="member-name">Sri Sanjoy Mandal</div>
+            <div class="member-desc">Research Scholar, NBU<br>River Research & Drone Technology</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Tanmoy+Kirtania" alt="Tanmoy Kirtania" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">Joint Secretary</span>
+            <div class="member-name">Sri Tanmoy Kirtania</div>
+            <div class="member-desc">Student</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px;">Executive Members</h3>
+      <div class="members-grid">
+        
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Dipankar+Das" alt="Dipankar Das" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">Executive Member</span>
+            <div class="member-name">Sri Dipankar Das</div>
+            <div class="member-desc">Research Assistant, WBDSTBT<br>GIS Expert</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Rashmi+Roy" alt="Rashmi Roy" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">Executive Member</span>
+            <div class="member-name">Smt. Rashmi Roy</div>
+            <div class="member-desc">Student, Adamas University<br>GIS Expert</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Kalpanath+Roy" alt="Kalpanath Roy" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">Executive Member</span>
+            <div class="member-name">Sri Kalpanath Roy</div>
+            <div class="member-desc">Teacher, EMRS, Nagrakata</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Dipayan+Dutta" alt="Dipayan Dutta" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">Executive Member</span>
+            <div class="member-name">Dr. Dipayan Dutta</div>
+            <div class="member-desc">Associate Professor<br>Dept. of Public Health Dentistry</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Jhilam+Deb" alt="Jhilam Deb" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">Executive Member</span>
+            <div class="member-name">Sri Jhilam Deb</div>
+            <div class="member-desc">Journalist</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <img src="https://via.placeholder.com/250x220?text=Sushmita+Sarkar" alt="Sushmita Sarkar" class="member-photo">
+          <div class="member-info">
+            <span class="member-role">Executive Member</span>
+            <div class="member-name">Smt. Sushmita Sarkar</div>
+            <div class="member-desc">Student, NEHU<br>GIS Expert</div>
+          </div>
         </div>
 
       </div>
@@ -214,36 +324,15 @@
       
       <h3 style="margin-top: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Our Operational Wings</h3>
       <div class="wings-container">
-        
         <div class="wing-box">
           <h4><i class="fas fa-satellite"></i> Technical Wing</h4>
           <p><b>GIS/RS based Mapping and Problem Assessment</b></p>
           <p>Focusing on satellite data analysis, hazard mapping, and technical modelling of river systems.</p>
         </div>
-
         <div class="wing-box">
           <h4><i class="fas fa-users"></i> Social Wing</h4>
           <p><b>Social Water Management Programme</b></p>
           <p>Engaging communities in water conservation, literacy campaigns, and participatory resource management.</p>
-        </div>
-
-      </div>
-      <h3 style="margin-top: 40px;">Key Members</h3>
-      <div class="team-grid">
-        <div class="team-card">
-          <h4>Dr. Debarshi Ghosh</h4>
-          <p><i>Director & Founder</i></p>
-          <p>Specialist in Fluvial Geomorphology</p>
-        </div>
-        <div class="team-card">
-          <h4>Mr. Sanjoy Mandal</h4>
-          <p><i>Senior Research Fellow</i></p>
-          <p>Floodplain Management</p>
-        </div>
-         <div class="team-card">
-          <h4>Mr. Dipankar Das</h4>
-          <p><i>Technical Lead</i></p>
-          <p>GIS & Data Science</p>
         </div>
       </div>
     </section>
@@ -266,6 +355,29 @@
             <p><b>Duration:</b> 6 Weeks | <b>Mode:</b> Offline</p>
           </div>
           <a href="#" class="btn">Apply Now</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <div class="section-title">
+        <h2>Publications & Research Papers</h2>
+      </div>
+      <p>Download our latest research papers on river dynamics and environmental studies.</p>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div>
+            <i class="fas fa-file-pdf" style="color: #d32f2f; margin-right: 10px;"></i>
+            <b>Spatio-Temporal Response</b> - <i>Downstream hydraulic changes</i>
+          </div>
+          <a href="Determining_the_spatio-temporal_response_of_downst.pdf" class="btn btn-download" target="_blank">View PDF</a>
+        </li>
+        <li class="pub-item">
+          <div>
+            <i class="fas fa-file-pdf" style="color: #d32f2f; margin-right: 10px;"></i>
+            <b>Teesta Basin VCC</b> - <i>Vulnerability and Capacity Context</i>
+          </div>
+          <a href="Teesta Basin VCC.pdf" class="btn btn-download" target="_blank">View PDF</a>
         </li>
       </ul>
     </section>
