@@ -28,7 +28,7 @@
     /* --- VIDEO HEADER SECTION --- */
     header.video-header {
       position: relative;
-      height: 450px; 
+      height: 480px; /* Increased height slightly for better video view */
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -57,7 +57,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 51, 102, 0.5);
+      /* Darker overlay to make white text pop against the water */
+      background: rgba(0, 30, 60, 0.5); 
       z-index: 1;
     }
 
@@ -65,22 +66,44 @@
       position: relative;
       z-index: 2;
       padding: 20px;
+      animation: fadeIn 2s ease-in;
     }
     
     /* Logo Styling */
     .site-logo {
-      width: 130px;
-      height: auto;
-      margin-bottom: 20px;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      margin-bottom: 15px;
       border-radius: 50%;
-      border: 4px solid rgba(255,255,255,0.8);
-      background: rgba(255,255,255,0.1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border: 4px solid rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
 
-    header h1 { color: var(--white); font-size: 3em; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); }
-    header p { font-size: 1.3em; margin-top: 10px; font-weight: 400; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+    header h1 { 
+      color: var(--white); 
+      font-size: 3em; 
+      margin: 0; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8); 
+    }
+    header p { 
+      font-size: 1.4em; 
+      margin-top: 10px; 
+      font-weight: 400; 
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.8); 
+      background: rgba(0,0,0,0.3); /* Slight background for readability */
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 5px;
+    }
 
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
 
     /* --- NAVIGATION --- */
     nav { background: var(--primary-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; justify-content: center; padding: 15px 0; }
@@ -178,7 +201,7 @@
     @media (max-width: 768px) {
       header.video-header { height: 400px; }
       header h1 { font-size: 2em; }
-      .site-logo { width: 100px; }
+      .site-logo { width: 100px; height: 100px; }
       nav { flex-direction: column; align-items: center; }
       nav a { margin: 5px 0; }
       .contact-grid { grid-template-columns: 1fr; }
@@ -189,8 +212,8 @@
 
   <header class="video-header">
     <video autoplay muted loop playsinline class="back-video">
-      <source src="https://player.vimeo.com/external/434962443.sd.mp4?s=1672323161333501280138007570196761112338&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
-      Your browser does not support HTML5 video.
+      <source src="https://videos.pexels.com/video-files/3250669/3250669-hd_1280_720_25fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
 
     <div class="header-overlay"></div>
